@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: accounting_telegram_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    # تنظیم Timezone برای تولید دقیق تاریخ/ساعت در پیام‌ها
+    environment:
+      - TZ=Asia/Tehran
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
