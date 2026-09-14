@@ -3,7 +3,7 @@ import { Keyboard, InlineKeyboard } from "grammy";
 // ── منوی اصلی (Reply Keyboard) ──
 export const mainMenu = Keyboard.from([
   ["➕ ثبت تراکنش", "💼 موجودی حساب‌ها"],
-  ["✅ موجودی دانکس"],
+  ["✅ موجودی دانکس" , "موجودی صراف ها 💱"],
 ]).resized();
 
 // ── زیرمنوی ثبت تراکنش ──

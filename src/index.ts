@@ -5,6 +5,7 @@ import { config } from "./config.js";
 import { registerStartHandler } from "./handlers/start.js";
 import {
   registerDonexBalances,
+  registerSourceBalancesHandler,
   registerUserBalances,
 } from "./handlers/balances.js";
 import { registerTransactionHandlers } from "./handlers/transactions.js";
@@ -51,6 +52,7 @@ bot.use(async (ctx, next) => {
 
 // 3. Register Specific handlers
 registerStartHandler(bot);
+registerSourceBalancesHandler(bot)
 registerUserBalances(bot);
 registerDonexBalances(bot);
 registerTransactionHandlers(bot);

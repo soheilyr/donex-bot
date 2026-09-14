@@ -79,6 +79,22 @@ class GoogleSheetsService {
         remain: String(remain) || "0",
       }));
   }
+
+  async getDonexSourceBalances(): Promise<Balance[]> {
+    const res = await this.sheets.spreadsheets.values.get({
+      spreadsheetId: config.balancesSheetId,
+      range: `${SHEETS.BALANCES}!G2:K`,
+    });
+    return (res.data.values ?? [])
+      .filter(
+        ([name, unit, In, Out, remain]) => name && unit && remain !== undefined,
+      )
+      .map(([name, unit, In, Out, remain]) => ({
+        name: String(name).trim(),
+        unit: String(unit),
+        remain: String(remain) || "0",
+      }));
+  }
 }
 
 export const sheetsService = new GoogleSheetsService();

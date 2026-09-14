@@ -67,3 +67,19 @@ export function registerDonexBalances(bot: Bot): void {
     }
   });
 }
+
+export function registerSourceBalancesHandler(bot: Bot): void {
+  bot.hears("موجودی صراف ها 💱", async (ctx) => {
+    try {
+      const balances = await sheetsService.getDonexSourceBalances();
+      const formattedMessage = formatBalances(balances);
+
+      await ctx.reply(formattedMessage, {
+        parse_mode: "Markdown",
+      });
+    } catch (error) {
+      console.error("Error fetching balances:", error);
+      await ctx.reply("❌ در دریافت اطلاعات موجودی مشکلی پیش آمد.");
+    }
+  });
+}
