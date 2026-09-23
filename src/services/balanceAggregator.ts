@@ -80,7 +80,8 @@ export function formatSinglePersonBalance(
   if (userBalances.size === 0) {
     lines.push("هیچ تراز مالی یافت نشد.");
   }
-  lines.join("\n");
+  lines.join("\n");\
+  lines.push("\n")
 lines.push(
     "عرض ادب و احترام لطفا نسبت به تایید یا عدم تایید مانده حساب خود اقدام فرمایید.\n",
   );
