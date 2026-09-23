@@ -66,9 +66,7 @@ export function formatSinglePersonBalance(
   const lines: string[] = [];
   lines.push(`👤 **موجودی ${titlePrefix}-${targetKey.toUpperCase()}**`);
   lines.push(`📅 تا تاریخ ${persianDate} ساعت ${persianTime}:\n`);
-  lines.push(
-    "عرض ادب و احترام لطفا نسبت به تایید یا عدم تایید مانده حساب خود اقدام فرمایید.",
-  );
+
   let hasNonZero = false;
 
   for (const [unit, amount] of userBalances.entries()) {
@@ -82,7 +80,9 @@ export function formatSinglePersonBalance(
   if (userBalances.size === 0) {
     lines.push("هیچ تراز مالی یافت نشد.");
   }
-
+  lines.push(
+    "عرض ادب و احترام لطفا نسبت به تایید یا عدم تایید مانده حساب خود اقدام فرمایید.",
+  );
   return lines.join("\n");
 }
 
