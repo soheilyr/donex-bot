@@ -38,7 +38,7 @@ export function formatSinglePersonBalance(
   personName: string,
   balances: Balance[],
   titlePrefix: string = "DONEX",
-): string {
+) {
   const aggregated = aggregateBalancesByPerson(balances);
 
   // جستجوی بدون حساسیت به حروف بزرگ/کوچک (Case-Insensitive)
@@ -80,10 +80,11 @@ export function formatSinglePersonBalance(
   if (userBalances.size === 0) {
     lines.push("هیچ تراز مالی یافت نشد.");
   }
-  lines.push(
+  lines.join("\n");
+
+  return lines.push(
     "عرض ادب و احترام لطفا نسبت به تایید یا عدم تایید مانده حساب خود اقدام فرمایید.\n",
   );
-  return lines.join("\n");
 }
 
 /** تبدیل عدد متنی به عدد پردازشی */
