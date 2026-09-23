@@ -83,7 +83,7 @@ export function formatSinglePersonBalance(
 
   lines.push("\n");
   lines.push(
-    "عرض ادب و احترام لطفا نسبت به تایید یا عدم تایید مانده حساب خود اقدام فرمایید.\n",
+    "عرض ادب و احترام \nلطفا نسبت به تایید یا عدم تایید مانده حساب خود اقدام فرمایید.",
   );
   return lines.join("\n");
 }
